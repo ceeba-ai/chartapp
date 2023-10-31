@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>about</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button>
+        <a style="color: rgb(59, 8, 141);font-size: 26px;
+        border-bottom: none;background: rgb(0, 255, 64);font-weight: bold; "
+    href="index.html" >HOME PAGE</a> 
+    </button>
+    <div class="contana">
+        <form onsubmit="sendEmail();reset(); return false;">
+            <h3>
+                GET IN TOUCH
+            </h3>
+            <input type="text" id="name" placeholder="Your name " required>
+            <input type="email" id="email" placeholder="Your email " required>
+            <input type="text" id="phone" placeholder="Your contact " required>
+            <textarea id="message" rows="4" placeholder="Your message"></textarea>
+            <button type="submit">send</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js">
+
+    </script>
+    <script>
+                    function sendEmail(){
+                        Email.send({
+                Host : "smtp.gmail.com",
+                Username : "ceebayakub@gmail.com",
+                Password : "Ceeba@passwd",
+                To : 'ceebayakubu124@gmail.com',
+                From : ducument.getElementById("email").value,
+                Subject : "This is the subject",
+                Body : "Name: " + ducument.getElementById("name").value
+                    + " <br> Email: " + ducument.getElementById("email").value
+                    + " <br> Phone no: " + ducument.getElementById(" phone").value
+                    + " <br> Message: " + ducument.getElementById("message").value
+            }).then(
+            message => alert( "message sent succesfully")
+            );
+                    }
+    </script>
+</body>
+</html>
